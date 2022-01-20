@@ -1,10 +1,15 @@
 import random
 
 user_name = input('Please, write your name: ')
-possible_items = ["rock", "paper", "scissors"]
-index = 1
 
-while index > 0:
+possible_items = ["rock", "paper", "scissors"]
+
+while True:
+
+    if user_name == '':
+        print('You cant ignore your name. Please, try again')
+        user_name = input('Please, write your name: ')
+        continue
 
     user_item = input('Please, write your item (rock, paper, scissors, exit - 0): ')
     user_item = user_item.lower()
