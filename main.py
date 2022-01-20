@@ -7,6 +7,7 @@ index = 1
 while index > 0:
 
     user_item = input('Please, write your item (rock, paper, scissors, exit - 0): ')
+    user_item = user_item.lower()
     computer_item = random.choice(possible_items)
 
     if user_item == '0':
