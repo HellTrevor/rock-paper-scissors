@@ -1,40 +1,12 @@
-import random
+from user_info import get_user_name, get_user_item
+from get_computer_item import get_computer_item
+from battle_result import battle_result
 
-user_name = input('Please, write your name: ')
+user_name = get_user_name()
+user_item = get_user_item()
 
-possible_items = ["rock", "paper", "scissors"]
+while user_item != '0':
 
-while True:
-
-    if user_name == '':
-        print('You cant ignore your name. Please, try again')
-        user_name = input('Please, write your name: ')
-        continue
-
-    user_item = input('Please, write your item (rock, paper, scissors, exit - 0): ')
-    user_item = user_item.lower()
-    computer_item = random.choice(possible_items)
-
-    if user_item == '0':
-        print('End.')
-        break
-    elif user_item != 'rock' and user_item != 'scissors' and user_item != 'paper':
-        print('Invalid data . . .')
-        continue
-
-    print('AI item: ', computer_item)
-
-    if user_item == 'rock' and computer_item == 'paper':
-        print('AI-player win!')
-    elif user_item == 'paper' and computer_item == 'scissors':
-        print('AI-player win!')
-    elif user_item == 'scissors' and computer_item == 'rock':
-        print('AI-player win!')
-    elif user_item == 'paper' and computer_item == 'rock':
-        print(user_name, ' win!')
-    elif user_item == 'rock' and computer_item == 'scissors':
-        print(user_name, ' win!')
-    elif user_item == 'scissors' and computer_item == 'paper':
-        print(user_name, ' win!')
-    elif user_item == computer_item:
-        print('Draw.')
+    computer_item = get_computer_item()
+    battle_result(user_item, computer_item, user_name)
+    user_item = get_user_item()
